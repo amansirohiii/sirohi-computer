@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import {
   Navbar,
@@ -9,43 +8,34 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu
+  Button,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
 } from "@nextui-org/react";
-import {
-  ChevronDown,
-  Lock,
-  Activity,
-  Flash,
-  Server,
-  TagUser,
-  Scale,
-} from "./Icons.jsx";
-
+import { ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale } from "./Icons.jsx";
 import { Logo } from "./Logo.tsx";
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale className="text-warning" fill="currentColor" size={30} />,
     lock: <Lock className="text-success" fill="currentColor" size={30} />,
-    activity: (
-      <Activity className="text-secondary" fill="currentColor" size={30} />
-    ),
+    activity: <Activity className="text-secondary" fill="currentColor" size={30} />,
     flash: <Flash className="text-primary" fill="currentColor" size={30} />,
     server: <Server className="text-success" fill="currentColor" size={30} />,
     user: <TagUser className="text-danger" fill="currentColor" size={30} />,
   };
+
+  // Define menu items with name and slug
   const menuItems = [
-    "Home",
-    "Dashboard",
-    "Our Courses",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    { name: "Home", slug: "/" },
+    { name: "Our Courses", slug: "/courses" },
+    { name: "About Us", slug: "/about" },
+    { name: "Contact Us", slug: "/contact" },
+    { name: "Log Out", slug: "/logout" },
   ];
 
   return (
@@ -56,13 +46,14 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          {/* <Logo /> */}
-          <Link color="foreground" href="/"><p className="font-bold text-inherit mx-auto sm:ml-2 text-black sm:text-xl">Sirohi Computer Institute</p></Link>
+          <Link color="foreground" href="/">
+            <p className="font-bold text-inherit mx-auto sm:ml-2 text-black sm:text-xl">Sirohi Computer Institute</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-      <Dropdown>
+        <Dropdown>
           <NavbarItem isActive aria-current="page">
             <DropdownTrigger>
               <Button
@@ -83,48 +74,18 @@ export default function App() {
               base: "gap-4",
             }}
           >
-              <DropdownItem
-              key="web-development"
-            >
-              <Link href="/courses/web-development">Web Development</Link>
-            </DropdownItem>
-             <DropdownItem
-              key="supreme_support"
-            >
-              O Level
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-            >
-             CCC
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-            >
-              ECC
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-            >
-              MS Office
-            </DropdownItem>
-            <DropdownItem
-              key="supreme_support"
-            >
-              Tally
-            </DropdownItem>
-
+            {menuItems.map((menuItem) => (
+              <DropdownItem key={menuItem.slug}>
+                <Link href={menuItem.slug}>{menuItem.name}</Link>
+              </DropdownItem>
+            ))}
           </DropdownMenu>
         </Dropdown>
         <NavbarItem>
-          <Link href="#" >
-            About Us
-          </Link>
+          <Link href="#" >About Us</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Contact
-          </Link>
+          <Link color="foreground" href="#">Contact</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
@@ -132,27 +93,19 @@ export default function App() {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="/contact" variant="flat">
-           Contact Us
-          </Button>
+          <Button as={Link} color="primary" href="/contact" variant="flat">Contact Us</Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+        {menuItems.map((menuItem, index) => (
+          <NavbarMenuItem key={index}>
             <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
+              color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"}
               className="w-full"
-              href={"#"}
+              href={menuItem.slug}
               size="lg"
             >
-              {item}
+              {menuItem.name}
             </Link>
           </NavbarMenuItem>
         ))}
