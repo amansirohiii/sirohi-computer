@@ -5,7 +5,7 @@ import Courses from "@/components/Courses";
 
 export default function CoursesPage() {
   return (
-    <div className="h-[100vh] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+    <div className="min-h-fit w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
         <Courses/>
 
       <BackgroundBeams />
