@@ -22,7 +22,6 @@ import {
 } from "./Icons.jsx";
 
 import { Logo } from "./Logo";
-
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const icons = {
@@ -39,7 +38,7 @@ export default function App() {
   const menuItems = [
     "Home",
     "Dashboard",
-    "Activity",
+    "Our Courses",
     "Analytics",
     "System",
     "Deployments",
@@ -64,7 +63,7 @@ export default function App() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
       <Dropdown>
-          <NavbarItem>
+          <NavbarItem isActive aria-current="page">
             <DropdownTrigger>
               <Button
                 disableRipple
@@ -73,7 +72,7 @@ export default function App() {
                 radius="sm"
                 variant="light"
               >
-                Features
+                Our Courses
               </Button>
             </DropdownTrigger>
           </NavbarItem>
@@ -121,14 +120,14 @@ export default function App() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+        <NavbarItem>
+          <Link href="#" >
+            About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Integrations
+            Contact
           </Link>
         </NavbarItem>
       </NavbarContent>
