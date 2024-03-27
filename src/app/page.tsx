@@ -1,7 +1,11 @@
+import App from "@/components/Navbar";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Sirohi Computer</h1>
+    <main className="">
+      <App/>
+
+
     </main>
   );
 }
