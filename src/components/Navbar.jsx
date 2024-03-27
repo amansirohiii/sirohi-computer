@@ -57,7 +57,7 @@ export default function App() {
         />
         <NavbarBrand>
           {/* <Logo /> */}
-          <p className="font-bold text-inherit ml-2 text-black">Sirohi Computer Institute</p>
+          <p className="font-bold text-inherit ml-2 text-black text-xl">Sirohi Computer Institute</p>
         </NavbarBrand>
       </NavbarContent>
 

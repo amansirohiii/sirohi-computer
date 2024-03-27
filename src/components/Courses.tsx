@@ -1,7 +1,7 @@
 "use client"
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 
-export function CardHoverEffectDemo() {
+export default function Courses() {
   return (
     <div className="max-w-5xl mx-auto px-8">
         <h1 className="text-5xl items-center justify-center">Our Courses </h1>
@@ -14,7 +14,7 @@ export const projects = [
     title: "Web Development",
     description:
       "A technology company that builds economic infrastructure for the internet.",
-    link: "/",
+    link: "/courses/web-development",
   },
   {
     title: "O Level",
