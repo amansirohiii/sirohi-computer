@@ -57,7 +57,7 @@ export default function App() {
         />
         <NavbarBrand>
           <Logo />
-          <p className="font-bold text-inherit ml-2">Sirohi Computer</p>
+          <p className="font-bold text-inherit ml-2 dark:text-white text-black">Sirohi Computer</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -67,7 +67,7 @@ export default function App() {
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 bg-transparent "
+                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
                 endContent={icons.chevron}
                 radius="sm"
                 variant="light"
@@ -113,8 +113,6 @@ export default function App() {
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
-              description="Overcome any challenge with a supporting team ready to respond."
-              startContent={icons.user}
             >
               +Supreme Support
             </DropdownItem>
