@@ -84,9 +84,9 @@ export default function App() {
             }}
           >
               <DropdownItem
-              key="supreme_support"
+              key="web-development"
             >
-              Web Development
+              <Link href="/courses/web-development">Web Development</Link>
             </DropdownItem>
              <DropdownItem
               key="supreme_support"
