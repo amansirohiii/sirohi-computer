@@ -56,8 +56,8 @@ export default function App() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Logo />
-          <p className="font-bold text-inherit ml-2 dark:text-white text-black">Sirohi Computer</p>
+          {/* <Logo /> */}
+          <p className="font-bold text-inherit ml-2 text-black">Sirohi Computer Institute</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -78,44 +78,42 @@ export default function App() {
           </NavbarItem>
           <DropdownMenu
             aria-label="ACME features"
-            className="w-[340px]"
+            className="w-auto text-center"
             itemClasses={{
               base: "gap-4",
             }}
           >
-            <DropdownItem
-              key="autoscaling"
-              description="ACME scales apps to meet user demand, automagically, based on load."
-              startContent={icons.scale}
+              <DropdownItem
+              key="supreme_support"
             >
-              Autoscaling
+              Web Development
             </DropdownItem>
-            <DropdownItem
-              key="usage_metrics"
-              description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-              startContent={icons.activity}
+             <DropdownItem
+              key="supreme_support"
             >
-              Usage Metrics
-            </DropdownItem>
-            <DropdownItem
-              key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
-              startContent={icons.flash}
-            >
-              Production Ready
-            </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              description="Applications stay on the grid with high availability and high uptime guarantees."
-              startContent={icons.server}
-            >
-              +99% Uptime
+              O Level
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
             >
-              +Supreme Support
+             CCC
             </DropdownItem>
+            <DropdownItem
+              key="supreme_support"
+            >
+              ECC
+            </DropdownItem>
+            <DropdownItem
+              key="supreme_support"
+            >
+              MS Office
+            </DropdownItem>
+            <DropdownItem
+              key="supreme_support"
+            >
+              Tally
+            </DropdownItem>
+
           </DropdownMenu>
         </Dropdown>
         <NavbarItem>

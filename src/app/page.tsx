@@ -4,6 +4,8 @@ import { NavbarDemo } from "@/components/NavbarDemo";
 import {HeroScrollDemo} from "@/components/Certificate";
 import { CardHoverEffectDemo } from "@/components/Courses";
 import { HeroParallaxDemo } from "@/components/HeroDemo";
+import { InfiniteMovingCardsDemo } from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Hero/>
     <HeroScrollDemo/>
     <CardHoverEffectDemo/>
+    <InfiniteMovingCardsDemo/>
+    <Footer/>
     </main>
   );
 }
