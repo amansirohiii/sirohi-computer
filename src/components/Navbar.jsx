@@ -21,7 +21,7 @@ import {
   Scale,
 } from "./Icons.jsx";
 
-import { Logo } from "./Logo";
+import { Logo } from "./Logo.tsx";
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const icons = {
@@ -67,7 +67,7 @@ export default function App() {
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                className="p-0 bg-transparent "
                 endContent={icons.chevron}
                 radius="sm"
                 variant="light"
