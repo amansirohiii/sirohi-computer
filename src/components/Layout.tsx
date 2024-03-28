@@ -15,7 +15,7 @@ function Layout({ title, children }: LayoutProps) {
         <title>{title ? title : "Sirohi Computer Center"} </title>
         <meta name="description" content="Sirohi Computer Center" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
     <App/>
         <main className="container m-auto mt-4 xl:px-14 md:px-12 px-8">

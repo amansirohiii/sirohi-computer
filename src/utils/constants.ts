@@ -110,7 +110,6 @@ export const heroImages = [
 ];
 
 export const courseDataa = [
-
   {
     title: "ECC",
     description:
@@ -166,8 +165,8 @@ export interface CourseContent {
   id: number;
   slug: string;
   name: string;
-  description: string,
-  slug2: string,
+  description: string;
+  slug2: string;
   data: {
     [badge: string]: {
       title: string;
