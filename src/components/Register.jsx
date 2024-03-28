@@ -47,6 +47,9 @@ export default function Register() {
     if (!formData.email) {
       newErrors.email = "Please enter your email address";
       isValid = false;
+    } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+      isValid = false;
     }
 
     // Mobile validation
@@ -73,12 +76,21 @@ export default function Register() {
   };
 
   const handleChange = (e, fieldName) => {
-    setFormData({ ...formData, [fieldName]: e.target.value });
+    const value = e.target.value;
+
+    // If the field is mobile number, ensure only numeric characters are allowed
+    const numericValue = fieldName === "mobile" ? value.replace(/\D/g, '') : value;
+
+    // Update the form data with the modified value
+    setFormData({ ...formData, [fieldName]: numericValue });
+
     // Clear the error message if the user starts typing again
     if (errors[fieldName]) {
       setErrors({ ...errors, [fieldName]: "" });
     }
   };
+
+
 
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -89,7 +101,7 @@ export default function Register() {
         Register now in any of our courses
       </p>
 
-      <form className="my-8" onSubmit={handleSubmit}>
+      <form className="my-8" onSubmit={handleSubmit} noValidate>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
@@ -130,16 +142,19 @@ export default function Register() {
           {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="text">Mobile</Label>
-          <Input
-            id="number"
-            placeholder="1234567890"
-            type="number"
-            value={formData.mobile}
-            onChange={(e) => handleChange(e, "mobile")}
-          />
-          {errors.mobile && <span className="text-red-500 text-sm">{errors.mobile}</span>}
-        </LabelInputContainer>
+  <Label htmlFor="text">Mobile</Label>
+  <Input
+    id="number"
+    placeholder="1234567890"
+    type="text"
+    inputMode="numeric" // Set inputMode to "numeric" to enforce numeric input
+    pattern="[0-9]*" // Use pattern attribute to specify a regex pattern for numeric input
+    value={formData.mobile}
+    onChange={(e) => handleChange(e, "mobile")}
+  />
+  {errors.mobile && <span className="text-red-500 text-sm">{errors.mobile}</span>}
+</LabelInputContainer>
+
 
         <LabelInputContainer className="mb-8">
           <Label htmlFor="course">Select a Course</Label>
