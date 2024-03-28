@@ -3,6 +3,7 @@
 export interface CourseContent {
   id: number;
   slug: string;
+  name: string;
   data: {
     [badge: string]: {
       title: string;
@@ -16,6 +17,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 1,
     slug: 'web-development',
+    name: 'Web Development',
     data: {
       'Week 1': {
         title: 'Introduction to Web Development',
@@ -37,6 +39,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 2,
     slug: 'o-level',
+    name: 'O Level',
     data: {
       'Week 1': {
         title: 'Introduction to O Level',
@@ -58,6 +61,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 3,
     slug: 'tally',
+    name: 'Tally',
     data: {
       'Week 1': {
         title: 'Introduction to Tally',
@@ -79,6 +83,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 4,
     slug: 'ccc',
+    name: 'Course on Computer Concepts CCC',
     data: {
       'Week 1': {
         title: 'Introduction to CCC',
@@ -100,6 +105,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 5,
     slug: 'ecc',
+    name: 'ECC',
     data: {
       'Week 1': {
         title: 'Introduction to ECC',
@@ -121,6 +127,7 @@ export const courseDescription: CourseContent[] = [
   {
     id: 6,
     slug: 'ms-office',
+    name: 'MS Office',
     data: {
       'Week 1': {
         title: 'Introduction to MS Office',
