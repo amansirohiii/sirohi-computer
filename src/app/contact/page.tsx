@@ -1,6 +1,10 @@
+import ContactWavyBackground from "@/components/WavyBackground";
+
 export default function Contact(){
   return (
-    <div className="min-h-screen">Contact</div>
+    <div className="">
+      <ContactWavyBackground/>
+    </div>
   )
 }
 

@@ -6,23 +6,23 @@ const Footer = () => {
 
 <footer className="bg-white dark:bg-black">
     <div className="w-full sm:max-w-screen-xl mx-auto text-center sm:p-4 md:py-8">
-        <div className="sm:flex sm:flex-row text-center flex-col items-center sm:justify-between">
+        <div className="sm:flex sm:flex-row text-center flex-col items-center sm:justify-between mx-auto">
             <Link href="/" className="flex items-center mb-4 sm:mb-0 sm:space-x-3 rtl:space-x-reverse">
                 {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" /> */}
-                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-red-600 text-gray-800">Sirohi Computer Institute</span>
+                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-red-600 text-gray-800 mx-auto text-center mt-5">Sirohi Computer Institute</span>
             </Link>
-            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 justify-center">
                 <li>
                     <Link href="/courses" className="hover:underline me-4 md:me-6">Our Courses</Link>
                 </li>
                 <li>
-                    <Link href="#" className="hover:underline me-4 md:me-6">About Us</Link>
+                    <Link href="/about" className="hover:underline me-4 md:me-6">About Us</Link>
                 </li>
                 <li>
-                    <Link href="#" className="hover:underline me-4 md:me-6">Contact Us</Link>
+                    <Link href="/contact" className="hover:underline me-4 md:me-6">Contact Us</Link>
                 </li>
                 <li>
-                    <Link href="#" className="hover:underline">Register</Link>
+                    <Link href="/register" className="hover:underline">Register</Link>
                 </li>
             </ul>
         </div>

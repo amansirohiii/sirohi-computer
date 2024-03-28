@@ -25,13 +25,13 @@ export const heroImages = [
     title: "Cursor",
     link: "/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+      "/web-development.png",
   },
   {
     title: "Rogue",
     link: "/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+      "/web-development.png",
   },
 
   {
