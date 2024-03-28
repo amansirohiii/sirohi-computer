@@ -15,35 +15,35 @@ import {
   Dropdown,
   DropdownMenu,
 } from "@nextui-org/react";
-import {
-  ChevronDown,
-  Lock,
-  Activity,
-  Flash,
-  Server,
-  TagUser,
-  Scale,
-} from "./Icons.jsx";
-import { Logo } from "./Logo.tsx";
-import { courseMenuItems, mobileMenuItems } from "@/utils/constants.ts";
+// import {
+//   ChevronDown,
+//   Lock,
+//   Activity,
+//   Flash,
+//   Server,
+//   TagUser,
+//   Scale,
+// } from "./Icons.jsx";
+import { Logo } from "./Logo.jsx";
+import { courseMenuItems, mobileMenuItems } from "@/utils/constants";
 import { useState } from "react";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const icons = {
-    chevron: <ChevronDown fill="currentColor" size={16} />,
-    scale: <Scale className="text-warning" fill="currentColor" size={30} />,
-    lock: <Lock className="text-success" fill="currentColor" size={30} />,
-    activity: (
-      <Activity className="text-secondary" fill="currentColor" size={30} />
-    ),
-    flash: <Flash className="text-primary" fill="currentColor" size={30} />,
-    server: <Server className="text-success" fill="currentColor" size={30} />,
-    user: <TagUser className="text-danger" fill="currentColor" size={30} />,
-  };
+  // const icons = {
+  //   chevron: <ChevronDown fill="currentColor" size={16} />,
+  //   scale: <Scale className="text-warning" fill="currentColor" size={30} />,
+  //   lock: <Lock className="text-success" fill="currentColor" size={30} />,
+  //   activity: (
+  //     <Activity className="text-secondary" fill="currentColor" size={30} />
+  //   ),
+  //   flash: <Flash className="text-primary" fill="currentColor" size={30} />,
+  //   server: <Server className="text-success" fill="currentColor" size={30} />,
+  //   user: <TagUser className="text-danger" fill="currentColor" size={30} />,
+  // };
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [timeoutId, setTimeoutId] = useState (null);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [timeoutId, setTimeoutId] = useState (null);
   const delay = 1000;
 
   return (
@@ -51,7 +51,7 @@ export default function App() {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="sm:hidden text-black"
         />
         <NavbarBrand>
           <Link color="foreground" href="/">
@@ -115,18 +115,18 @@ export default function App() {
           <Link href="/about">About Us</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contact">
-            Contact
+          <Link color="foreground" href="/results">
+            Results
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/contact">Contact Us</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="/contact" variant="flat">
-            Contact Us
+          <Button as={Link} color="primary" href="/register" variant="flat">
+            Register
           </Button>
         </NavbarItem>
       </NavbarContent>
@@ -136,9 +136,9 @@ export default function App() {
             <Link
               color={
                 index === 2
-                  ? "primary"
+                  ? "foreground"
                   : index === mobileMenuItems.length - 1
-                  ? "danger"
+                  ? "primary"
                   : "foreground"
               }
               className="w-full"
