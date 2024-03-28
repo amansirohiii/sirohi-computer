@@ -1,14 +1,10 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
 
+import { courseMenuItems } from "@/utils/constants";
 export default function Register() {
   const [formData, setFormData] = useState({
     firstname: "",
@@ -16,6 +12,7 @@ export default function Register() {
     email: "",
     mobile: "",
     twitterpassword: "",
+    selectedCourse: "", // Added selectedCourse field
   });
 
   const [errors, setErrors] = useState({
@@ -24,12 +21,14 @@ export default function Register() {
     email: "",
     mobile: "",
     twitterpassword: "",
+    selectedCourse: "", // Added selectedCourse field
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Client-side validation logic
     const newErrors = {};
+
     let isValid = true;
 
     // First name validation
@@ -73,12 +72,9 @@ export default function Register() {
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldName: string
-  ) => {
+  const handleChange = (e, fieldName) => {
     setFormData({ ...formData, [fieldName]: e.target.value });
-    // Clear the error message if user starts typing again
+    // Clear the error message if the user starts typing again
     if (errors[fieldName]) {
       setErrors({ ...errors, [fieldName]: "" });
     }
@@ -90,7 +86,7 @@ export default function Register() {
         Sirohi Computer Institute
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        Register now in any of our course
+        Register now in any of our courses
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
@@ -99,26 +95,26 @@ export default function Register() {
             <Label htmlFor="firstname">First name</Label>
             <Input
               id="firstname"
-              placeholder="Sirohi"
+              placeholder="Aman"
               type="text"
               value={formData.firstname}
               onChange={(e) => handleChange(e, "firstname")}
             />
             {errors.firstname && (
-              <span className="text-red-500">{errors.firstname}</span>
+              <span className="text-red-500 text-sm">{errors.firstname}</span>
             )}
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
             <Input
               id="lastname"
-              placeholder="Computers"
+              placeholder="Sirohi"
               type="text"
               value={formData.lastname}
               onChange={(e) => handleChange(e, "lastname")}
             />
             {errors.lastname && (
-              <span className="text-red-500">{errors.lastname}</span>
+              <span className="text-red-500 text-sm">{errors.lastname}</span>
             )}
           </LabelInputContainer>
         </div>
@@ -131,35 +127,49 @@ export default function Register() {
             value={formData.email}
             onChange={(e) => handleChange(e, "email")}
           />
-          {errors.email && <span className="text-red-500">{errors.email}</span>}
+          {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Mobile</Label>
+          <Label htmlFor="text">Mobile</Label>
           <Input
-            id="password"
+            id="number"
             placeholder="1234567890"
             type="number"
             value={formData.mobile}
             onChange={(e) => handleChange(e, "mobile")}
           />
-          {errors.mobile && <span className="text-red-500">{errors.mobile}</span>}
+          {errors.mobile && <span className="text-red-500 text-sm">{errors.mobile}</span>}
         </LabelInputContainer>
+
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
-          <Input
-            id="twitterpassword"
-            placeholder="••••••••"
-            type="twitterpassword"
-            value={formData.twitterpassword}
-            onChange={(e) => handleChange(e, "twitterpassword")}
-          />
-          {errors.twitterpassword && (
-            <span className="text-red-500">{errors.twitterpassword}</span>
+          <Label htmlFor="course">Select a Course</Label>
+          <select
+            id="course"
+            className="flex h-10 w-full border-none bg-gray-50 dark:bg-zinc-800 text            -black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent
+            file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600
+            focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
+            disabled:cursor-not-allowed disabled:opacity-50
+            dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+            group-hover/input:shadow-none transition duration-400"
+            value={formData.selectedCourse}
+            onChange={(e) => handleChange(e, "selectedCourse")}
+          >
+            <option value="">Choose a course...</option>
+            {courseMenuItems.map((course) => (
+              <option key={course.slug} value={course.slug}>
+                {course.name}
+              </option>
+            ))}
+          </select>
+          {errors.selectedCourse && (
+            <span className="text-red-500 text-sm">
+              {errors.selectedCourse}
+            </span>
           )}
         </LabelInputContainer>
 
         <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1 px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
           Register Now &rarr;
@@ -181,16 +191,11 @@ const BottomGradient = () => {
   );
 };
 
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
+const LabelInputContainer = ({ children, className }) => {
   return (
     <div className={cn("flex flex-col space-y-2 w-full", className)}>
       {children}
     </div>
   );
 };
+
