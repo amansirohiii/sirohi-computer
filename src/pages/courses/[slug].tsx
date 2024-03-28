@@ -34,8 +34,8 @@ const CoursePage = () => {
 
             <TracingBeam className="px-6">
             <ul>
-              {Object.entries(course?.data).map(([badge, { title, description }]) => (
-                <div key={`content-${course?.slug}`} className="mb-10">
+              {Object.entries(course?.data).map(([badge, { title, description }], index) => (
+  <div key={`content-${course?.slug}-${index}`} className="mb-10">
                 <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
                   {badge}
                 </h2>
