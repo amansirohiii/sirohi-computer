@@ -6,6 +6,7 @@ import CourseSkeleton from '@/components/CourseSkeleton';
 import App from '@/components/Navbar';
 import Footer from '@/components/Footer';
 // import RootLayout from '@/app/layout';
+import Layout from '@/components/Layout';
 
 const CoursePage = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const CoursePage = () => {
   return (
 
 <div>
-       <App/>
+       <Layout title= {course.name}>
        <div className="max-w-2xl mx-auto antialiased pt-4 relative">
           <div className="mb-10 min-h-screen">
             <h1 className="text-3xl m-5 my-16 text-center text-yellow-600 font-bold">{course?.name}</h1>
@@ -46,9 +47,9 @@ const CoursePage = () => {
             </ul>
             </TracingBeam>
           </div>
-        </div>
+        L</div>
 
-        <Footer/>
+        </Layout>
         </div>
 
   );
