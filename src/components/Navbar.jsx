@@ -63,7 +63,7 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <Dropdown isOpen={isOpen}>
+        {/* <Dropdown isOpen={isOpen}>
           <NavbarItem isActive aria-current="page">
             <DropdownTrigger>
               <Button
@@ -107,7 +107,10 @@ export default function App() {
               </DropdownItem>
             ))}
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
+        <NavbarItem>
+          <Link href="/courses" color="foreground">Our Courses</Link>
+        </NavbarItem>
         <NavbarItem>
           <Link href="/about">About Us</Link>
         </NavbarItem>
