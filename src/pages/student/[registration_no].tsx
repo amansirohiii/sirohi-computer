@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import StudentSkeleton from "@/components/StudentSkeleton";
-
+import Image from "next/image";
 // Define interface for student data
 interface Student {
   _id: { $oid: string };
@@ -56,18 +56,25 @@ const StudentProfile: React.FC = () => {
 
   if (!student) {
     // Render an error message if student not found
-    return <Layout>Student not found</Layout>;
+    return <Layout><div className="h-screen text-3xl text-center">Student not found, Redirecting...</div></Layout>;
   }
+
+  // Function to handle printing
+  const handlePrint = () => {
+    window.print();
+  };
 
   return (
     <Layout>
-      <div className="w-full h-screen flex flex-col items-center justify-center text-black">
+      <div className="w-full min-h-screen flex flex-col items-center justify-center text-black">
         <h1 className="text-center text-3xl font-bold mb-8 text-white">
           Student Profile
         </h1>
         <div className="max-w-md w-full mx-auto bg-white shadow-md rounded-lg p-8">
-          <img
-            className="w-40 h-40 mx-auto rounded-full mb-4"
+          <Image
+          width={150}
+          height={150}
+            className=" mx-auto rounded-full mb-4"
             src={student.image_url}
             alt={student.name}
           />
@@ -88,11 +95,11 @@ const StudentProfile: React.FC = () => {
             <span className="font-bold">Gender:</span> {student.gender}
           </p>
           <p>
-            <span className="font-bold">Father's Name:</span>{" "}
+            <span className="font-bold">Father&apos;s Name:</span>{" "}
             {student.father_name}
           </p>
           <p>
-            <span className="font-bold">Mother's Name:</span>{" "}
+            <span className="font-bold">Mother&apos;s Name:</span>{" "}
             {student.mother_name}
           </p>
           <p>
@@ -106,6 +113,14 @@ const StudentProfile: React.FC = () => {
             <span className="font-bold">Course Completion Date:</span>{" "}
             {student.course_completion_date}
           </p>
+          <div className="w-full items-center flex justify-center">
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
+            onClick={handlePrint}
+          >
+            Print
+          </button>
+          </div>
         </div>
       </div>
     </Layout>
