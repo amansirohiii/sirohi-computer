@@ -26,20 +26,29 @@ const StudentProfile: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Simulate asynchronous student search
-    const timer = setTimeout(() => {
-      // Find student by registration number
-      const foundStudent = studentData.find(
-        (student) => student.registration_no === registration_no
-      );
-      if (foundStudent) {
+    const fetchStudentData = async () => {
+      try {
+        const response = await fetch(
+          `https://sirohi-computer-backend:5000/student/${registration_no}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch student data");
+        }
+        const foundStudent = await response.json();
         setStudent(foundStudent);
+        console.log(student)
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching student data:", error);
+        setLoading(false);
       }
-      setLoading(false);
-    }, 1000);
+    };
 
-    // Cleanup timer
-    return () => clearTimeout(timer);
+    if (registration_no) {
+      fetchStudentData();
+    }
+
+    return () => setLoading(true); // Reset loading state when unmounting or changing registration_no
   }, [registration_no]);
 
   useEffect(() => {
@@ -51,12 +60,22 @@ const StudentProfile: React.FC = () => {
 
   if (loading) {
     // Render loading state while searching
-    return <Layout><StudentSkeleton/></Layout>;
+    return (
+      <Layout>
+        <StudentSkeleton />
+      </Layout>
+    );
   }
 
   if (!student) {
     // Render an error message if student not found
-    return <Layout><div className="h-screen text-3xl text-center">Student not found, Redirecting...</div></Layout>;
+    return (
+      <Layout>
+        <div className="h-screen text-3xl text-center">
+          Student not found, Redirecting...
+        </div>
+      </Layout>
+    );
   }
 
   // Function to handle printing
@@ -72,11 +91,12 @@ const StudentProfile: React.FC = () => {
         </h1>
         <div className="max-w-md w-full mx-auto bg-white shadow-md rounded-lg p-8">
           <Image
-          width={150}
-          height={150}
-            className=" mx-auto rounded-full mb-4"
+            priority
+            width={150}
+            height={150}
             src={student.image_url}
             alt={student.name}
+            className=" mx-auto rounded-full mb-4"
           />
           <h2 className="text-xl font-bold text-center mb-2">{student.name}</h2>
           <p>
@@ -114,12 +134,12 @@ const StudentProfile: React.FC = () => {
             {student.course_completion_date}
           </p>
           <div className="w-full items-center flex justify-center">
-          <button
-            className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
-            onClick={handlePrint}
-          >
-            Print
-          </button>
+            <button
+              className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
+              onClick={handlePrint}
+            >
+              Print
+            </button>
           </div>
         </div>
       </div>
@@ -128,35 +148,3 @@ const StudentProfile: React.FC = () => {
 };
 
 export default StudentProfile;
-
-// Mock student data
-const studentData: Student[] = [
-  {
-    _id: { $oid: "660665a0095f9cbafaaed31e" },
-    registration_no: "001",
-    name: "Aman Sirohi",
-    course_name: "CCC",
-    date_of_birth: "01-01-01",
-    gender: "Male",
-    father_name: "A",
-    mother_name: "B",
-    address: "C",
-    admission_date: "01-01-23",
-    course_completion_date: "01-07-23",
-    image_url: "https://avatars.githubusercontent.com/u/91265420?v=4",
-  },
-  {
-    _id: { $oid: "660665a0095f9cbafaaed31f" },
-    registration_no: "002",
-    name: "Aman",
-    course_name: "ECC",
-    date_of_birth: "01-01-01",
-    gender: "Male",
-    father_name: "A",
-    mother_name: "B",
-    address: "C",
-    admission_date: "01-01-23",
-    course_completion_date: "01-07-23",
-    image_url: "https://avatars.githubusercontent.com/u/91265420?v=4",
-  },
-];

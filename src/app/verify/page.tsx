@@ -5,37 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
 
-const studentData = [
-  {
-    _id: { $oid: "660665a0095f9cbafaaed31e" },
-    registration_no: "001",
-    name: "Aman Sirohi",
-    course_name: "CCC",
-    date_of_birth: "01-01-01",
-    gender: "Male",
-    father_name: "A",
-    mother_name: "B",
-    address: "C",
-    admission_date: "01-01-23",
-    course_completion_date: "01-07-23",
-    image_url: "https://avatars.githubusercontent.com/u/91265420?v=4",
-  },
-  {
-    _id: { $oid: "660665a0095f9cbafaaed31f" },
-    registration_no: "002",
-    name: "Aman",
-    course_name: "ECC",
-    date_of_birth: "01-01-01",
-    gender: "Male",
-    father_name: "A",
-    mother_name: "B",
-    address: "C",
-    admission_date: "01-01-23",
-    course_completion_date: "01-07-23",
-    image_url: "https://avatars.githubusercontent.com/u/91265420?v=4",
-  },
-];
-
 export default function Verify() {
   const [registrationNumber, setRegistrationNumber] = useState("");
   const router = useRouter();
@@ -43,15 +12,9 @@ export default function Verify() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Find student with provided registration number
-    const student = studentData.find(
-      (student) => student.registration_no === registrationNumber
-    );
-    if (student) {
-      // Redirect to student profile page with enrollment number
-      router.push(`/student/${student.registration_no}`);
-    } else {
-      console.error("Student not found");
-    }
+    console.log(registrationNumber)
+    router.push(`/student/${registrationNumber}`);
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
