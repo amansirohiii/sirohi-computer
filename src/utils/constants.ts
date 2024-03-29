@@ -16,97 +16,100 @@ export const courseMenuItems = [
 ];
 export const heroImages = [
   {
-    title: "Moonbeam",
-    link: "/",
+    title: "Web Development",
+    link: "/courses/web-development",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+      "/heroImages/web-development.png",
   },
   {
-    title: "Cursor",
-    link: "/",
+    title: "Tally",
+    link: "/courses/tally",
     thumbnail:
-      "/web-development.png",
+      "/heroImages/tally.png",
   },
   {
-    title: "Rogue",
-    link: "/",
+    title: "ECC",
+    link: "/courses/ecc",
     thumbnail:
-      "/web-development.png",
-  },
-
-  {
-    title: "Editorially",
-    link: "/",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+      "/heroImages/ecc.png",
   },
   {
-    title: "Editrix AI",
-    link: "/",
+    title: "MS Office",
+    link: "/courses/ms-office",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+      "/heroImages/ms-office.png",
   },
   {
-    title: "Pixel Perfect",
-    link: "/",
+    title: "CCC",
+    link: "/courses/ccc",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+      "/heroImages/ccc.png",
   },
 
   {
-    title: "Algochurn",
-    link: "/",
+    title: "MS Office",
+    link: "/courses/ms-office",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+      "/heroImages/ms-office.png",
   },
   {
-    title: "Aceternity UI",
-    link: "/",
+    title: "CCC",
+    link: "/courses/ccc",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+      "/heroImages/ccc.png",
   },
   {
-    title: "Tailwind Master Kit",
-    link: "/",
+    title: "Python",
+    link: "/courses/python",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
-  },
-  {
-    title: "SmartBridge",
-    link: "/",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
-  },
-  {
-    title: "Renderwork Studio",
-    link: "/",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+      "/heroImages/python.png",
   },
 
   {
-    title: "Creme Digital",
-    link: "/",
+    title: "O Level",
+    link: "/courses/o-level",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+      "/heroImages/o-level.png",
   },
   {
-    title: "Golden Bells Academy",
-    link: "/",
+    title: "Python",
+    link: "/courses/python",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+      "/heroImages/python.png",
+  },
+
+  {
+    title: "O Level",
+    link: "/courses/o-level",
+    thumbnail:
+      "/heroImages/o-level.png",
   },
   {
-    title: "Invoker Labs",
-    link: "/",
+    title: "Web Development",
+    link: "/courses/web-development",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+      "/heroImages/web-development.png",
   },
   {
-    title: "E Free Invoice",
-    link: "/",
+    title: "Tally",
+    link: "/courses/tally",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+      "/heroImages/tally.png",
+  },
+  {
+    title: "ECC",
+    link: "/courses/ecc",
+    thumbnail:
+      "/heroImages/ecc.png",
+  },
+
+
+
+  {
+    title: "Web Development",
+    link: "/courses/web-development",
+    thumbnail:
+      "/heroImages/web-development.png",
   },
 ];
 
