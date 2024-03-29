@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { courseData, CourseContent } from '@/utils/constants'; // Import your course data
 import { TracingBeam } from "@/components/ui/tracing-beam";
-import "@/app/globals.css";
 import CourseSkeleton from '@/components/CourseSkeleton';
 // import RootLayout from '@/app/layout';
 import Layout from '@/components/Layout';

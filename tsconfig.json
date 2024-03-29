@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/Icons.tsx", "src/components/Navbar.tsx", "src/pages/courses/courses/[web-development].jsx", "src/components/Layout.tsx", "src/components/Register.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/Icons.tsx", "src/components/Navbar.tsx", "src/pages/courses/courses/[web-development].jsx", "src/components/Layout.tsx", "src/components/Register.jsx", "src/pages/student/[registration_no].tsx"],
   "exclude": ["node_modules"]
 }

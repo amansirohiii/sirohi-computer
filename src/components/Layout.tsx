@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Footer from "./Footer";
 import App from "./Navbar";
+import "@/app/globals.css";
+
 
 interface LayoutProps {
   title?: string;
