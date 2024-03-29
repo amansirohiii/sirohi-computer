@@ -1,7 +1,7 @@
 export const mobileMenuItems = [
   { name: "Home", slug: "/" },
   { name: "Our Courses", slug: "/courses" },
-  { name: "Results", slug: "/results" },
+  { name: "Verify Student", slug: "/verify" },
   { name: "About Us", slug: "/about" },
   { name: "Contact Us", slug: "/contact" },
   { name: "Register", slug: "/register" },

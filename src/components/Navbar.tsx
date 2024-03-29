@@ -115,8 +115,8 @@ export default function App() {
           <Link href="/about">About Us</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/results">
-            Results
+          <Link color="foreground" href="/verify">
+            Verify Student
           </Link>
         </NavbarItem>
       </NavbarContent>
