@@ -94,7 +94,7 @@ const StudentProfile: React.FC = () => {
             priority
             width={150}
             height={150}
-            src={student.image_url}
+            src={"https://res.cloudinary.com/dxqwqe7me/image/upload/v1711718755/"+student.image_url}
             alt={student.name}
             className=" mx-auto rounded-full mb-4"
           />
