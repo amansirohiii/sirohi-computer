@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import StudentSkeleton from "@/components/StudentSkeleton";
 import Image from "next/image";
+import Link from "next/link";
 // Define interface for student data
 interface Student {
   _id: { $oid: string };
@@ -17,6 +18,7 @@ interface Student {
   admission_date: string;
   course_completion_date: string;
   image_url: string;
+  certificate_url: string;
 }
 
 const StudentProfile: React.FC = () => {
@@ -29,7 +31,7 @@ const StudentProfile: React.FC = () => {
     const fetchStudentData = async () => {
       try {
         const response = await fetch(
-          `https://sirohi-computer-backend.vercel.app/student/${registration_no}`
+          `http://localhost:5000/student/${registration_no}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
@@ -83,6 +85,7 @@ const StudentProfile: React.FC = () => {
     window.print();
   };
 
+
   return (
     <Layout>
       <div className="w-full min-h-screen flex flex-col items-center justify-center text-black">
@@ -134,12 +137,20 @@ const StudentProfile: React.FC = () => {
             {student.course_completion_date}
           </p>
           <div className="w-full items-center flex justify-center">
-            <button
+            {/* <button
               className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
               onClick={handlePrint}
             >
               Print
+            </button> */}
+            <Link href={`https://res.cloudinary.com/dxqwqe7me/raw/upload/v1711865443/${student.certificate_url}`}>
+              <button
+              className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
+
+            >
+              Download Certificate
             </button>
+            </Link>
           </div>
         </div>
       </div>
