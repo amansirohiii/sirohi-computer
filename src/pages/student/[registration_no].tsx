@@ -31,7 +31,7 @@ const StudentProfile: React.FC = () => {
     const fetchStudentData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/student/${registration_no}`
+          `https://sirohi-computer-backend.vercel.app/student/${registration_no}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
