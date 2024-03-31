@@ -143,12 +143,14 @@ const StudentProfile: React.FC = () => {
             >
               Print
             </button> */}
-            <Link href={`https://res.cloudinary.com/dxqwqe7me/raw/upload/v1711865443/${student.certificate_url}.pdf`}>
-  <button className="bg-blue-500 text-white py-2 px-4 rounded mt-4">
-    Download Certificate
-  </button>
-</Link>
+            <Link href={`https://res.cloudinary.com/dxqwqe7me/image/upload/v1711878817/${student.certificate_url}.pdf`} type="application/pdf" download={`${student.name}.pdf`} target="_blank">
+              <button
+              className="bg-blue-500 text-white py-2 px-4 rounded mt-4 "
 
+            >
+              Download Certificate
+            </button>
+            </Link>
           </div>
         </div>
       </div>
